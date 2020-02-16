@@ -1,0 +1,36 @@
+{
+		"name": "restaurant-bill-splitter",
+		"version": "1.0.0",
+		"description": "",
+		"main": "index.js",
+		"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1",
+				"start": "webpack-dev-server --mode development --open --hot",
+				"build": "webpack --mode production"
+		},
+		"keywords": [],
+		"author": "Marion Paolo Abeabe",
+		"license": "ISC",
+		"devDependencies": {
+				"@babel/cli": "^7.8.4",
+				"@babel/core": "^7.8.4",
+				"@babel/preset-env": "^7.8.4",
+				"@babel/preset-es2015": "^7.0.0-beta.53",
+				"@babel/preset-react": "^7.8.3",
+				"babel-loader": "^8.0.6",
+				"css-loader": "^3.4.2",
+				"del": "^5.1.0",
+				"gulp": "^4.0.2",
+				"gulp-sass": "^4.0.2",
+				"html-webpack-plugin": "^3.2.0",
+				"style-loader": "^1.1.3"
+		},
+		"dependencies": {
+				"lodash": "^4.17.15",
+				"react": "^16.12.0",
+				"react-dom": "^16.12.0",
+				"webpack": "^4.41.6",
+				"webpack-cli": "^3.3.11",
+				"webpack-dev-server": "^3.10.3"
+		}
+}
