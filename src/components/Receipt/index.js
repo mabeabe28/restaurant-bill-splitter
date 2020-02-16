@@ -8,14 +8,17 @@ const Receipt = () => {
   /**Items */
   const [items, setItems] = useState([]);
 
-  const itemDefaults = {name:'',quantity:'',price:''};
+  const itemDefaults = {id:'',name:'',quantity:'',price:''};
 
   const submitItems = () => {
     
     //depending on quantity add however much
     const quantity = inputs.quantity;
     let item = [];
-    _.times( quantity, () => item.push({name:inputs.name,price:inputs.price}) );
+    _.times( quantity, (index) => {
+      //console.log('index',index);
+      item.push({id:(items.length + index),name:inputs.name,price:inputs.price});
+    });
 
     const newItems = _.concat([...items], item);
     
@@ -25,11 +28,31 @@ const Receipt = () => {
   
   }
   const {inputs, handleInputChange, handleSubmit} = useForm(submitItems, itemDefaults, true);
+
+
+
+  const onChooseItem = (chosen) => {
+    const chosenItemId = chosen.target.id;
+
+    const newItemsArr = [...items]//Object.assign({}, items);
+    //const newChosenItemObj = Object.assign({}, items[chosenItemId]);//items[chosenItemId];
+    //newChosenItemObj.diner = selectedDiner
+    if(newItemsArr[chosenItemId].diner !== undefined && newItemsArr[chosenItemId].diner.id === selectedDiner.id){
+      delete  newItemsArr[chosenItemId].diner;
+    }else{
+      newItemsArr[chosenItemId].diner = selectedDiner;
+    }
+    
+   // items[chosenItemId].diner = selectedDiner;
+    console.log('items',items);
+    //console.log('selectedDiner',selectedDiner);
+    setItems(newItemsArr);
+  }
   /**Items */
 
   /**Diners */
   const [diners, setDiners] = useState([]);
-  const [selected, setSelected] = useState({});
+  const [selectedDiner, setSelectedDiner] = useState({});
 
 
   const onDinerClick = (selected) => {
@@ -37,8 +60,11 @@ const Receipt = () => {
     console.log('selectedPersonId',selectedPersonId);
 
     console.log('sel',diners[selectedPersonId]);
-
-    setSelected(diners[selectedPersonId]);
+    let newSelectedDiner = diners[selectedPersonId];
+    if(newSelectedDiner === selectedDiner){
+      newSelectedDiner = '';
+    }
+    setSelectedDiner(newSelectedDiner);
   }
   /**Diners */
 
@@ -47,9 +73,9 @@ const Receipt = () => {
         <div>
             <h1>Receipt</h1>
         </div>
-        { selected.name && (
+        { selectedDiner.name && (
             <div>
-              Choosing {selected.name}'s Items
+              Choosing {selectedDiner.name}'s Items
             </div>
           )
         }
@@ -59,8 +85,15 @@ const Receipt = () => {
             {console.log('items list',items)}
             {items.map((item, key) => {
               //console.log(index);
-              return (<li key={key} >
-                {item.name} @ £{item.price}
+              return (<li key={key} 
+                id={item.id}
+                onClick={onChooseItem}
+              >
+                {item.name} @ £{item.price}  
+
+                {(item.diner) && (
+                  item.diner.name
+                )}
               </li>);
             })}
           </ul>
