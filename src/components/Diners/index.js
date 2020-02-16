@@ -32,7 +32,10 @@ const Diners = (props) => {
               {console.log('diners list',props.diners)}
               {props.diners.map((diner, key) => {
                 //console.log(index);
-                return (<li key={key} >
+                return (<li key={key} 
+                    onClick={props.onDinerClick}
+                    id={key}
+                >
                   {diner.name} 
                 </li>);
               })}

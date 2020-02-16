@@ -5,6 +5,7 @@ import Diners from '../Diners';
 
 const Receipt = () => {
 
+  /**Items */
   const [items, setItems] = useState([]);
 
   const itemDefaults = {name:'',quantity:'',price:''};
@@ -24,14 +25,35 @@ const Receipt = () => {
   
   }
   const {inputs, handleInputChange, handleSubmit} = useForm(submitItems, itemDefaults, true);
+  /**Items */
 
+  /**Diners */
   const [diners, setDiners] = useState([]);
+  const [selected, setSelected] = useState({});
+
+
+  const onDinerClick = (selected) => {
+    const selectedPersonId = selected.target.id;
+    console.log('selectedPersonId',selectedPersonId);
+
+    console.log('sel',diners[selectedPersonId]);
+
+    setSelected(diners[selectedPersonId]);
+  }
+  /**Diners */
 
   return (
     <div className="receipt">
         <div>
             <h1>Receipt</h1>
         </div>
+        { selected.name && (
+            <div>
+              Choosing {selected.name}'s Items
+            </div>
+          )
+        }
+        
         <div className="receipt_list">
           <ul>
             {console.log('items list',items)}
@@ -66,6 +88,7 @@ const Receipt = () => {
           <Diners
             diners={diners}
             setDiners={setDiners}
+            onDinerClick={onDinerClick}
           />
         </div>
     </div>
