@@ -171,6 +171,31 @@ form {
 .person-color-none {
   background-color: #cccccc; }
 
+.receipt_list {
+  margin: 10px; }
+  .receipt_list .item-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    .receipt_list .item-list li {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      margin-bottom: 10px; }
+      .receipt_list .item-list li .item-person {
+        margin-right: 10px;
+        text-transform: uppercase;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none; }
+      .receipt_list .item-list li .item-info {
+        width: 80%;
+        pointer-events: none; }
+
 #receipt .receipt-body {
   width: 100%; }
   #receipt .receipt-body ul.receipt-header {
@@ -213,28 +238,3 @@ form {
     margin-top: 60px;
     height: 100%;
     padding: 5px; }
-
-.receipt_list {
-  margin: 10px; }
-  .receipt_list .item-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0; }
-    .receipt_list .item-list li {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      margin-bottom: 10px; }
-      .receipt_list .item-list li .item-person {
-        margin-right: 10px;
-        text-transform: uppercase;
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        pointer-events: none; }
-      .receipt_list .item-list li .item-info {
-        width: 80%;
-        pointer-events: none; }

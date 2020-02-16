@@ -7,7 +7,7 @@ module.exports = {
     },
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'app_bin.js',
+    filename: 'billsplit.js',
   },
   devServer: {
     inline: true,
