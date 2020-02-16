@@ -8,7 +8,7 @@ const Diners = (props) => {
   const submitDiner = () => {
     
     //depending on quantity add however much
-    const diner = {id:props.diners.length,name:inputs.dinerName};
+    const diner = {id:props.diners.length,name:inputs.dinerName,items:[]};
 
     //set new list
     props.setDiners([...props.diners,diner]);
@@ -17,7 +17,7 @@ const Diners = (props) => {
   }
 
   //const [diners, setDiners] = useState([]);
-  const dinerDefaults = {id:'',dinerName:''};
+  const dinerDefaults = {id:'',dinerName:'',items:[]};
   
   const {inputs, handleInputChange, handleSubmit} = useForm(submitDiner, dinerDefaults, true);
 

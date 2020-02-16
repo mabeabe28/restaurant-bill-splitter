@@ -2,13 +2,15 @@ import React , { useState }  from 'react';
 import _ from 'lodash';
 import useForm from '../../hooks/form';
 import Diners from '../Diners';
+import Summary from '../Summary';
+import ExtraCharges from '../ExtraCharges';
 
 const Receipt = () => {
 
   /**Items */
   const [items, setItems] = useState([]);
 
-  const itemDefaults = {id:'',name:'',quantity:'',price:''};
+  const itemDefaults = {id:'',name:'',quantity:'',price:'',diner:{}};
 
   const submitItems = () => {
     
@@ -17,7 +19,7 @@ const Receipt = () => {
     let item = [];
     _.times( quantity, (index) => {
       //console.log('index',index);
-      item.push({id:(items.length + index),name:inputs.name,price:inputs.price});
+      item.push({id:(items.length + index),name:inputs.name,price:inputs.price,diner:{}});
     });
 
     const newItems = _.concat([...items], item);
@@ -38,11 +40,17 @@ const Receipt = () => {
     //const newChosenItemObj = Object.assign({}, items[chosenItemId]);//items[chosenItemId];
     //newChosenItemObj.diner = selectedDiner
     if(newItemsArr[chosenItemId].diner !== undefined && newItemsArr[chosenItemId].diner.id === selectedDiner.id){
-      delete  newItemsArr[chosenItemId].diner;
+      //delete  newItemsArr[chosenItemId].diner;
+      newItemsArr[chosenItemId].diner = {};
     }else{
       newItemsArr[chosenItemId].diner = selectedDiner;
     }
-    
+
+
+    //const newDinersArr = [...diners]//Object.assign({}, items);
+    //newDinersArr[selectedDiner.id].items.push(newItemsArr[chosenItemId]);
+    //setDiners(newDinersArr);
+
    // items[chosenItemId].diner = selectedDiner;
     console.log('items',items);
     //console.log('selectedDiner',selectedDiner);
@@ -67,6 +75,12 @@ const Receipt = () => {
     setSelectedDiner(newSelectedDiner);
   }
   /**Diners */
+
+
+  /**Extra */
+    const [extraCharges, setExtraCharges] = useState([]);
+  /**Extra */
+
 
   return (
     <div className="receipt">
@@ -116,6 +130,13 @@ const Receipt = () => {
             <button type="submit">Add Item</button>
           </form>
         </div>
+        
+        <div>
+          <ExtraCharges
+            extraCharges={extraCharges}
+            setExtraCharges={setExtraCharges}
+          />
+        </div>
 
         <div>
           <Diners
@@ -124,6 +145,15 @@ const Receipt = () => {
             onDinerClick={onDinerClick}
           />
         </div>
+
+        <div>
+          <Summary
+            diners={diners}
+            items={items}
+            extraCharges={extraCharges}
+          />
+        </div>
+        
     </div>
   );
 };
