@@ -41,7 +41,7 @@ form {
   .people-chooser__list .diner-menu .diner-item {
     display: inline-block;
     text-align: center;
-    padding: 14px;
+    padding: 10px;
     text-decoration: none; }
     .people-chooser__list .diner-menu .diner-item__button {
       text-transform: uppercase;
