@@ -4,7 +4,7 @@ const Summary = (props) => {
 
 
     const getSummary = () => {
-        console.log('Summary props', props);
+        //console.log('Summary props', props);
 
         const groupedByDiner = _(props.items)
             .groupBy(x => {
@@ -41,7 +41,7 @@ const Summary = (props) => {
         });
 
         const dinnerSummaryFinal = groupedByDiner.map(din => {
-            console.log('din',din);
+            //console.log('din',din);
 
             const newDinItems = Object.assign({},din);
             let totalItemPrice = 0;
@@ -63,10 +63,39 @@ const Summary = (props) => {
         return dinnerSummaryFinal;
     }
 
+    const getTotalItemPrice = () => {
+
+        let totalItemPrice = 0;
+        props.items.map(item => {
+            totalItemPrice = parseFloat(totalItemPrice) + parseFloat(item.price);
+        })
+
+        return totalItemPrice.toFixed(2);
+    }
+
+    const getTotalExtraPrices = () => {
+
+        let totalExtraPrices = 0;
+        props.extraCharges.map(charge => {
+            totalExtraPrices = parseFloat(totalExtraPrices) + parseFloat(charge.amount);
+        })
+
+        return totalExtraPrices.toFixed(2);
+    }
+
+    const getTotalPrice = () => (parseFloat(getTotalItemPrice()) +  parseFloat(getTotalExtraPrices())).toFixed(2);
+
+
     return (
         <React.Fragment>
             <h3>Summary</h3>
             <div>
+                <div>
+                    <h4>Total Item Price: {getTotalItemPrice()}</h4>
+                    <h4>Total Extra Price: {getTotalExtraPrices()}</h4>
+                    <h4><strong>Total Price:</strong> { getTotalPrice()}</h4>
+
+                </div>
                 <ul>
                 {getSummary().map((curDiner, index) =>{
                     return (<li key={index}>

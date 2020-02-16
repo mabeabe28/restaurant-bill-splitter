@@ -3,7 +3,7 @@ import _ from 'lodash';
 import useForm from '../../hooks/form';
 
 const ExtraCharges = (props) => {
-    console.log('props',props);
+    //console.log('props',props);
 
   const submitExtraCharges = () => {
     
@@ -29,7 +29,7 @@ const ExtraCharges = (props) => {
           <h3>Extra Charges / Discounts</h3>
           <div className="charges__list">
             <ul>
-              {console.log('charges list',props.extraCharges)}
+              {/*console.log('charges list',props.extraCharges)*/}
               {props.extraCharges.map((charge, key) => {
                 //console.log(index);
                 return (<li key={key} 

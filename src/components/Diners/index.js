@@ -3,7 +3,7 @@ import _ from 'lodash';
 import useForm from '../../hooks/form';
 
 const Diners = (props) => {
-    console.log('props',props);
+    //console.log('props',props);
 
   const submitDiner = () => {
     
@@ -29,7 +29,7 @@ const Diners = (props) => {
           <h3>People</h3>
           <div className="people__list">
             <ul>
-              {console.log('diners list',props.diners)}
+              {/*console.log('diners list',props.diners)*/}
               {props.diners.map((diner, key) => {
                 //console.log(index);
                 return (<li key={key} 

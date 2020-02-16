@@ -1,6 +1,7 @@
 import React , { useState }  from 'react';
 import _ from 'lodash';
 import useForm from '../../hooks/form';
+import Items from '../Items';
 import Diners from '../Diners';
 import Summary from '../Summary';
 import ExtraCharges from '../ExtraCharges';
@@ -9,28 +10,6 @@ const Receipt = () => {
 
   /**Items */
   const [items, setItems] = useState([]);
-
-  const itemDefaults = {id:'',name:'',quantity:'',price:'',diner:{}};
-
-  const submitItems = () => {
-    
-    //depending on quantity add however much
-    const quantity = inputs.quantity;
-    let item = [];
-    _.times( quantity, (index) => {
-      //console.log('index',index);
-      item.push({id:(items.length + index),name:inputs.name,price:inputs.price,diner:{}});
-    });
-
-    const newItems = _.concat([...items], item);
-    
-    //set new list
-    setItems(newItems);
-
-  
-  }
-  const {inputs, handleInputChange, handleSubmit} = useForm(submitItems, itemDefaults, true);
-
 
 
   const onChooseItem = (chosen) => {
@@ -46,14 +25,6 @@ const Receipt = () => {
       newItemsArr[chosenItemId].diner = selectedDiner;
     }
 
-
-    //const newDinersArr = [...diners]//Object.assign({}, items);
-    //newDinersArr[selectedDiner.id].items.push(newItemsArr[chosenItemId]);
-    //setDiners(newDinersArr);
-
-   // items[chosenItemId].diner = selectedDiner;
-    console.log('items',items);
-    //console.log('selectedDiner',selectedDiner);
     setItems(newItemsArr);
   }
   /**Items */
@@ -65,9 +36,9 @@ const Receipt = () => {
 
   const onDinerClick = (selected) => {
     const selectedPersonId = selected.target.id;
-    console.log('selectedPersonId',selectedPersonId);
+    //console.log('selectedPersonId',selectedPersonId);
 
-    console.log('sel',diners[selectedPersonId]);
+    //console.log('sel',diners[selectedPersonId]);
     let newSelectedDiner = diners[selectedPersonId];
     if(newSelectedDiner === selectedDiner){
       newSelectedDiner = '';
@@ -95,40 +66,11 @@ const Receipt = () => {
         }
         
         <div className="receipt_list">
-          <ul>
-            {console.log('items list',items)}
-            {items.map((item, key) => {
-              //console.log(index);
-              return (<li key={key} 
-                id={item.id}
-                onClick={onChooseItem}
-              >
-                {item.name} @ £{item.price}  
-
-                {(item.diner) && (
-                  item.diner.name
-                )}
-              </li>);
-            })}
-          </ul>
-          
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>Item Name:</label>
-              <input id="name" onChange={handleInputChange} type="text" value={inputs.name} required={true}/>
-            </div>
-
-            <div>
-              <label>Individual Price:</label>
-              <input id="price" onChange={handleInputChange} type="number" value={inputs.price} required={true}/>
-            </div>
-
-            <div>
-              <label>Quantity:</label>
-              <input id="quantity" onChange={handleInputChange} type="number" value={inputs.quantity} required={true}/>
-            </div>
-            <button type="submit">Add Item</button>
-          </form>
+          <Items
+            items={items}
+            setItems={setItems}
+            onChooseItem={onChooseItem}
+          />
         </div>
         
         <div>
