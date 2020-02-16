@@ -1,6 +1,28 @@
 h1 {
   color: red; }
 
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
+body {
+  margin: 0px;
+  width: 100%;
+  background-color: #07090A;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif; }
+
+form {
+  margin: 0;
+  padding: 0;
+  text-align: center; }
+  form button {
+    margin: 10px; }
+
+.form-group {
+  width: 100%; }
+  .form-group input {
+    padding: 10px;
+    width: 90%;
+    margin: 8px; }
+
 .section-box {
   padding: 15px;
   background-color: #2a2e32;
@@ -149,28 +171,6 @@ h1 {
 .person-color-none {
   background-color: #cccccc; }
 
-@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
-body {
-  margin: 0px;
-  width: 100%;
-  background-color: #07090A;
-  color: white;
-  font-family: 'Roboto Condensed', sans-serif; }
-
-form {
-  margin: 0;
-  padding: 0;
-  text-align: center; }
-  form button {
-    margin: 10px; }
-
-.form-group {
-  width: 100%; }
-  .form-group input {
-    padding: 10px;
-    width: 90%;
-    margin: 8px; }
-
 #receipt .receipt-body {
   width: 100%; }
   #receipt .receipt-body ul.receipt-header {
@@ -185,6 +185,7 @@ form {
     padding: 0;
     overflow: hidden;
     background-color: #07090A;
+    z-index: 99;
     font-size: 14px; }
     #receipt .receipt-body ul.receipt-header li.react-tabs__tab {
       height: 100%;
@@ -215,16 +216,16 @@ form {
 
 .receipt_list {
   margin: 10px; }
-  .receipt_list ul {
+  .receipt_list .item-list {
     list-style-type: none;
     margin: 0;
     padding: 0; }
-    .receipt_list ul li {
+    .receipt_list .item-list li {
       display: flex;
       width: 100%;
       align-items: center;
       margin-bottom: 10px; }
-      .receipt_list ul li .item-person {
+      .receipt_list .item-list li .item-person {
         margin-right: 10px;
         text-transform: uppercase;
         height: 40px;
@@ -234,6 +235,6 @@ form {
         justify-content: center;
         align-items: center;
         pointer-events: none; }
-      .receipt_list ul li .item-info {
+      .receipt_list .item-list li .item-info {
         width: 80%;
         pointer-events: none; }

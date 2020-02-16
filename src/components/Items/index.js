@@ -1,4 +1,6 @@
 import React , { useState }  from 'react';
+import FadeIn from 'react-fade-in';
+
 import _ from 'lodash';
 import useForm from '../../hooks/form';
 
@@ -29,7 +31,7 @@ const Items = (props) => {
     <React.Fragment>
           <h3>Items</h3>
 
-       <ul className="item-list">
+       <FadeIn className="item-list" key={props.items.length}>
             {props.items.map((item, key) => {
               //console.log(index);
               return (<li key={key} 
@@ -54,7 +56,7 @@ const Items = (props) => {
                 
               </li>);
             })}
-          </ul>
+          </FadeIn>
           
           <form onSubmit={handleSubmit}>
           <div className="form-group">
