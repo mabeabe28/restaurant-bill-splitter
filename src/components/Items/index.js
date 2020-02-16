@@ -27,37 +27,46 @@ const Items = (props) => {
 
   return(
     <React.Fragment>
-       <ul>
-            {/*console.log('items list',items)*/}
+          <h3>Items</h3>
+
+       <ul className="item-list">
             {props.items.map((item, key) => {
               //console.log(index);
               return (<li key={key} 
                 id={item.id}
                 onClick={props.onChooseItem}
-              >
-                {item.name} @ £{item.price}  
-
-                {(item.diner) && (
-                  item.diner.name
+              > 
+                {(item.diner.id !== undefined) ? (
+                  <div className={`item-person person-color-${parseFloat(item.diner.id)+1}`}>
+                      {item.diner.name.slice(0,1)}
+                  </div>
+                )
+                :
+                (
+                  <div className={`item-person person-color-none`}>
+                      U
+                  </div>
                 )}
+                <div className="item-info">
+                  {item.name} @ £{item.price}  
+                </div>
+
+                
               </li>);
             })}
           </ul>
           
           <form onSubmit={handleSubmit}>
-            <div>
-              <label>Item Name:</label>
-              <input id="name" onChange={handleInputChange} type="text" value={inputs.name} required={true}/>
+          <div className="form-group">
+              <input id="name" onChange={handleInputChange} type="text" value={inputs.name} placeholder="Item Name" required={true}/>
             </div>
 
-            <div>
-              <label>Individual Price:</label>
-              <input id="price" onChange={handleInputChange} type="number" value={inputs.price} required={true}/>
+            <div className="form-group">
+              <input id="price" onChange={handleInputChange} type="number" value={inputs.price} placeholder="Individual Price" required={true}/>
             </div>
 
-            <div>
-              <label>Quantity:</label>
-              <input id="quantity" onChange={handleInputChange} type="number" value={inputs.quantity} required={true}/>
+            <div className="form-group">
+              <input id="quantity" onChange={handleInputChange} type="number" value={inputs.quantity} placeholder="Quantity" required={true}/>
             </div>
             <button type="submit">Add Item</button>
           </form>

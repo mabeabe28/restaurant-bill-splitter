@@ -1,0 +1,78 @@
+.section-box{
+    padding: 15px;
+    background-color: #2a2e32;
+    border-radius: 15px;
+    margin: 10px;
+    font-size: 12px;
+    &--title{
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom:5px;
+    }
+}
+
+.people-chooser__list{
+    .diner-menu{
+
+        //background-color: #333;
+        overflow: auto;
+        white-space: nowrap;
+        //display: flex;
+        justify-content: center;
+
+
+
+        .diner-item{
+            display: inline-block;
+            //color: white;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+          
+            &__button{
+              
+
+                text-transform: uppercase;
+                height: 60px;
+                width: 60px;
+            
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &__fullname{
+                font-size: 12px;
+                text-align: center;
+                margin: 5px;
+            }
+        }
+    
+    }
+}
+
+
+//.diner-item{
+    $chartColors: #56c7fa, #f76540, #ffcb05, #62cd9f, #b67baa, #c299ff, #3333ff;
+    @for $i from 1 through length($chartColors) {
+        $chartColors: append($chartColors, darken(nth($chartColors, $i), 25));
+    }
+    $chartColorsLength: length($chartColors);
+
+    @for $i from 1 through $chartColorsLength {
+        /*&:nth-of-type(#{$chartColorsLength}n+#{$i}) {
+            .diner-item__button{
+                background-color: nth($chartColors, $i);      
+            }
+        }*/
+        .person-color-#{$i}{
+            background-color: nth($chartColors, $i);      
+        }
+    }
+    
+    .person-color-none{
+        background-color: #cccccc;      
+    }
+//}
+

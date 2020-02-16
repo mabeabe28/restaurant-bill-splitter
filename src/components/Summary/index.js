@@ -56,7 +56,6 @@ const Summary = (props) => {
         })
         console.log('dinnerSummaryFinal',dinnerSummaryFinal);
 
-        //setDinerSummary(dinnerSummaryFinal);
 
 
 

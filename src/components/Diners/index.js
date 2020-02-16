@@ -26,7 +26,10 @@ const Diners = (props) => {
 
   return (
     <React.Fragment>
-          <h3>People</h3>
+          <div className="section-box">
+            <span className="section-box--title">Hello!</span><br/>
+            <span>Insert the people in the group. In the instance a person is paying for someone, still add that person to the group and select their items, it will help with the calculation</span>
+          </div>
           <div className="people__list">
             <ul>
               {/*console.log('diners list',props.diners)*/}
@@ -43,10 +46,11 @@ const Diners = (props) => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div>
-              <label>Diner Name:</label>
-              <input id="dinerName" onChange={handleInputChange} type="text" value={inputs.dinerName} required={true}/>
+            <div className="form-group">
+              <input id="dinerName" onChange={handleInputChange} type="text" value={inputs.dinerName} placeholder="Name" required={true} />
             </div>
+
+        
             
             <button type="submit">Add Item</button>
           </form>

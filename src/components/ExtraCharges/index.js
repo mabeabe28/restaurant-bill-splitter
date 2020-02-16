@@ -42,14 +42,12 @@ const ExtraCharges = (props) => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div>
-              <label>Charge Name:</label>
-              <input id="chargeName" onChange={handleInputChange} type="text" value={inputs.chargeName} required={true}/>
+            <div className="form-group">
+              <input id="chargeName" onChange={handleInputChange} type="text" value={inputs.chargeName} placeholder="Charge Name" required={true}/>
             </div>
 
-            <div>
-              <label>Amount:</label>
-              <input id="amount" onChange={handleInputChange} type="text" value={inputs.amount} required={true}/>
+            <div className="form-group">
+              <input id="amount" onChange={handleInputChange} type="text" value={inputs.amount} placeholder="Amount" required={true}/>
             </div>
             
             <button type="submit">Add Item</button>
