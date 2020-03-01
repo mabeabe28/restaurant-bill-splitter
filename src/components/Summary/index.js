@@ -127,6 +127,22 @@ const Summary = (props) => {
                     return (<li id={curDiner.dinerId} key={index}  className={`summary-person-list__person ${(selectedPerson === curDiner.dinerId)?'active':''}`} onClick={onDinerClick(curDiner.dinerId)} >
                             <span className="price">£{curDiner.totalPrice}</span>
                             <span className="label">{curDiner.dinerName}</span>
+
+                            {(selectedPerson === curDiner.dinerId) && (
+                                    <ul className="items">
+                                        
+                                    {
+                                        curDiner['items'].map((curItem, itemIndex) =>{
+                                            return (
+                                            <li  key={itemIndex}> 
+                                                {curItem.name} @ £{curItem.price}
+                                            </li>
+                                            );
+                                        })
+                                    }
+                                    </ul>
+
+                            )}
                     </li>);
                 })}
                 </ul>
