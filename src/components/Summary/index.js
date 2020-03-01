@@ -85,25 +85,48 @@ const Summary = (props) => {
     const getTotalPrice = () => (parseFloat(getTotalItemPrice()) +  parseFloat(getTotalExtraPrices())).toFixed(2);
 
 
+    const [selectedPerson, setSelectedPerson] = useState('');
+
+    
+
+
+    const onDinerClick = dinerId => e => {
+        console.log('#dinerId',dinerId)
+        if(selectedPerson === dinerId){
+            setSelectedPerson('');
+        }else{
+            setSelectedPerson(dinerId);
+        }
+    };
+
     return (
         <React.Fragment>
-            <h3>Summary</h3>
-            <div>
-                <div>
-                    <h4>Total Item Price: {getTotalItemPrice()}</h4>
-                    <h4>Total Extra Price: {getTotalExtraPrices()}</h4>
-                    <h4><strong>Total Price:</strong> { getTotalPrice()}</h4>
+            <div className="summary">
+                <div className="summary-price">
+                    <div className="summary-price__total">
+                        <span className="price">£{getTotalPrice()}</span>
+                        <span className="label">Total Price</span>
+                    </div>
 
+                    <div className="summary-price__sub">
+
+                        <div className="summary-price__sub__item">
+                            <span className="price">£{getTotalItemPrice()}</span>
+                            <span className="label">Total Item Price</span>
+                        </div>
+                        <div className="summary-price__sub__extra">
+                            <span className="price">£{getTotalExtraPrices()}</span>
+                            <span className="label">Total Extra Price</span>
+                        </div>
+
+                    </div>
+               
                 </div>
-                <ul>
+                <ul className="summary-person-list">
                 {getSummary().map((curDiner, index) =>{
-                    return (<li key={index}>
-                    <div>
-                       <h4>{curDiner.dinerName}</h4>
-                    </div>
-                    <div>
-                        £{curDiner.totalPrice}
-                    </div>
+                    return (<li id={curDiner.dinerId} key={index}  className={`summary-person-list__person ${(selectedPerson === curDiner.dinerId)?'active':''}`} onClick={onDinerClick(curDiner.dinerId)} >
+                            <span className="price">£{curDiner.totalPrice}</span>
+                            <span className="label">{curDiner.dinerName}</span>
                     </li>);
                 })}
                 </ul>

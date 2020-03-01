@@ -23,6 +23,31 @@ form {
     width: 90%;
     margin: 8px; }
 
+.receipt_list {
+  margin: 10px; }
+  .receipt_list .item-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+    .receipt_list .item-list li {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      margin-bottom: 10px; }
+      .receipt_list .item-list li .item-person {
+        margin-right: 10px;
+        text-transform: uppercase;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none; }
+      .receipt_list .item-list li .item-info {
+        width: 80%;
+        pointer-events: none; }
+
 .section-box {
   padding: 15px;
   background-color: #2a2e32;
@@ -171,30 +196,57 @@ form {
 .person-color-none {
   background-color: #cccccc; }
 
-.receipt_list {
-  margin: 10px; }
-  .receipt_list .item-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0; }
-    .receipt_list .item-list li {
-      display: flex;
+.summary-price__total {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px; }
+  .summary-price__total .price {
+    width: 100%;
+    font-size: 2rem;
+    text-align: center; }
+  .summary-price__total .label {
+    width: 100%;
+    text-align: center; }
+
+.summary-price__sub {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .summary-price__sub__item, .summary-price__sub__extra {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap; }
+    .summary-price__sub__item .price, .summary-price__sub__extra .price {
       width: 100%;
-      align-items: center;
-      margin-bottom: 10px; }
-      .receipt_list .item-list li .item-person {
-        margin-right: 10px;
-        text-transform: uppercase;
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        pointer-events: none; }
-      .receipt_list .item-list li .item-info {
-        width: 80%;
-        pointer-events: none; }
+      font-size: 1.3rem;
+      text-align: center; }
+    .summary-price__sub__item .label, .summary-price__sub__extra .label {
+      width: 100%;
+      text-align: center; }
+
+.summary-person-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+  justify-content: center;
+  margin-top: 40px; }
+  .summary-person-list__person {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px; }
+    .summary-person-list__person .price {
+      width: 100%;
+      font-size: 1.3rem;
+      text-align: center; }
+    .summary-person-list__person .label {
+      width: 100%;
+      text-align: center; }
+    .summary-person-list__person.active {
+      width: 100%;
+      background-color: pink; }
 
 #receipt .receipt-body {
   width: 100%; }

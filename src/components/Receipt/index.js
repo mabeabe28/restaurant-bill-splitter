@@ -55,9 +55,37 @@ const Receipt = () => {
   /**Extra */
 
 
+
+
+  /*const onImageText = () => {
+
+
+        //let btn = this;
+
+        // Disable button until the text recognition finishes
+        //btn.disable = true;
+
+        // Convert an image to text. This task works asynchronously, so you may show
+        // your user a loading dialog or something like that, or show the progress with Tesseract
+        Tesseract.recognize("../../../includes/receipt.jpg").then(function(result){
+            // The result object of a text recognition contains detailed data about all the text
+            // recognized in the image, words are grouped by arrays etc
+            console.log(result);
+
+            // Show recognized text in the browser !
+            //alert(result.text);
+        }).finally(function(){
+            // Enable button once the text recognition finishes (either if fails or not)
+            //btn.disable = false;
+        });
+
+  }*/
+
   return (
     <div id="receipt">
         
+
+
         <Tabs className="receipt-body">
           <TabList className="receipt-header">
             <li>
@@ -70,6 +98,11 @@ const Receipt = () => {
           </TabList>
 
           <TabPanel className="receipt__diners section">
+
+            
+        {/*<button id="img-to-txt" onClick={onImageText}>
+            Convert image to text
+        </button>*/}
               <Diners
                 diners={diners}
                 setDiners={setDiners}

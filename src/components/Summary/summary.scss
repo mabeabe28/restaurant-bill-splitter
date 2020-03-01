@@ -1,0 +1,89 @@
+.summary{
+    &-price{
+
+        &__total{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+
+            .price{
+                width: 100%;
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .label{
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        &__sub{
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            &__item,
+            &__extra{
+                width: 50%;
+                display: flex;
+                flex-wrap: wrap;
+
+                .price{
+                    width: 100%;
+                    font-size: 1.3rem;
+                    text-align: center;
+                }
+    
+                .label{
+                    width: 100%;
+                    text-align: center;
+                }
+                
+                
+            }
+            
+        }
+  
+
+    }
+
+
+    &-person-list{
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0px;
+        justify-content: center;
+        margin-top: 40px;
+        //justify-content: center;
+
+        &__person{
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;    
+            .price{
+                width: 100%;
+                font-size: 1.3rem;
+                text-align: center;
+            }
+    
+            .label{
+                width: 100%;
+                text-align: center;
+            }
+
+            &.active{
+                width: 100%;
+                background-color: pink;
+            }
+
+         
+
+        }
+
+       
+    }
+}
