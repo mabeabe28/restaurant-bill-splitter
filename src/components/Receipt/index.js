@@ -88,9 +88,6 @@ const Receipt = () => {
 
         <Tabs className="receipt-body">
           <TabList className="receipt-header">
-            <li>
-              <img className="logo" src="https://www.youhadme.at/wp-content/uploads/2020/02/YHMA-logo1-v2.png" alt="you-had-me-at"></img>
-            </li>
             <Tab>Diners</Tab>
             <Tab>Items</Tab>
             <Tab>Extra</Tab>
