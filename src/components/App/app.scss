@@ -28,3 +28,20 @@ form{
         margin:8px;
     }
 }
+
+button{
+        background-color: #9ad6bb; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 22px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: bold;
+
+        &:hover{
+            background-color: #7fb19a;
+            cursor: pointer;
+        }
+}

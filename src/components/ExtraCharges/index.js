@@ -50,7 +50,7 @@ const ExtraCharges = (props) => {
               <input id="amount" onChange={handleInputChange} type="text" value={inputs.amount} placeholder="Amount" required={true}/>
             </div>
             
-            <button type="submit">Add Item</button>
+            <button type="submit">Add Extra Charge</button>
           </form>
 
     </React.Fragment>

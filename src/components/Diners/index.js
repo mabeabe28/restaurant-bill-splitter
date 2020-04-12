@@ -52,7 +52,7 @@ const Diners = (props) => {
 
         
             
-            <button type="submit">Add Item</button>
+            <button type="submit">Add Diner</button>
           </form>
 
     </React.Fragment>
