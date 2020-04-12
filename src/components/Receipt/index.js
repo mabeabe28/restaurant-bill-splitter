@@ -88,10 +88,10 @@ const Receipt = () => {
 
         <Tabs className="receipt-body">
           <TabList className="receipt-header">
-            <Tab><h3>DINERS</h3></Tab>
-            <Tab><h3>ITEMS</h3></Tab>
-            <Tab><h3>EXTRA</h3></Tab>
-            <Tab><h3>SUMMARY</h3></Tab>
+            <Tab><h4 style={{'margin':0}}>DINERS</h4></Tab>
+            <Tab><h4 style={{'margin':0}}>ITEMS</h4></Tab>
+            <Tab><h4 style={{'margin':0}}>EXTRA</h4></Tab>
+            <Tab><h4 style={{'margin':0}}>SUMMARY</h4></Tab>
           </TabList>
 
           <TabPanel className="receipt__diners section">

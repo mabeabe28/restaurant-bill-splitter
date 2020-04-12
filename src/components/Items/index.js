@@ -25,7 +25,7 @@ const Items = (props) => {
   const {inputs, handleInputChange, handleSubmit} = useForm(submitItems, itemDefaults, true);
   return(
     <React.Fragment>
-        <h3>Items</h3>
+        <h4 className="title">Items</h4>
 
        	<FadeIn className="item-list" key={props.items.length}>
 			{props.items

@@ -26,7 +26,7 @@ const ExtraCharges = (props) => {
 
   return (
     <React.Fragment>
-          <h3>Extra Charges / Discounts</h3>
+          <h4 className="title">Extra Charges / Discounts</h4>
           <div className="charges__list">
             <ul>
               {/*console.log('charges list',props.extraCharges)*/}

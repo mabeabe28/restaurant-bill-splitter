@@ -1,43 +1,6 @@
 h1 {
   color: red; }
 
-@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
-body {
-  margin: 0px;
-  padding: 10px;
-  background-color: #ffffff;
-  color: black;
-  font-family: 'Roboto Condensed', sans-serif; }
-
-form {
-  margin: 0;
-  padding: 0;
-  text-align: center; }
-  form button {
-    margin: 10px; }
-
-.form-group {
-  width: 100%; }
-  .form-group input {
-    padding: 10px;
-    width: 90%;
-    margin: 8px; }
-
-button {
-  background-color: #9ad6bb;
-  /* Green */
-  border: none;
-  color: white;
-  padding: 15px 22px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: bold; }
-  button:hover {
-    background-color: #7fb19a;
-    cursor: pointer; }
-
 .section-box {
   padding: 15px;
   background-color: #f5efe0;
@@ -209,6 +172,89 @@ button {
       width: 80%;
       pointer-events: none; }
 
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
+body {
+  margin: 0px;
+  padding: 10px;
+  background-color: #ffffff;
+  color: black;
+  font-family: 'Roboto Condensed', sans-serif; }
+
+form {
+  margin: 0;
+  padding: 0;
+  text-align: center; }
+  form button {
+    margin: 10px; }
+
+.form-group {
+  width: 100%; }
+  .form-group input {
+    padding: 10px;
+    width: 90%;
+    margin: 8px; }
+
+button {
+  background-color: #9ad6bb;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold; }
+  button:hover {
+    background-color: #7fb19a;
+    cursor: pointer; }
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0; }
+
+#receipt .receipt-body {
+  width: 100%; }
+  #receipt .receipt-body ul.receipt-header {
+    align-items: center;
+    display: flex;
+    height: 60px;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    z-index: 99;
+    font-size: 14px;
+    margin-left: 10px; }
+    #receipt .receipt-body ul.receipt-header li.react-tabs__tab {
+      height: 100%;
+      width: 25%;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      color: #BEBDBE; }
+      #receipt .receipt-body ul.receipt-header li.react-tabs__tab--selected {
+        color: #375c85; }
+    #receipt .receipt-body ul.receipt-header li img {
+      width: 45px;
+      margin: 5px;
+      padding: 5px;
+      margin-right: 15px; }
+    #receipt .receipt-body ul.receipt-header li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      text-decoration: none; }
+    #receipt .receipt-body ul.receipt-header li a:hover {
+      cursor: pointer; }
+  #receipt .receipt-body .react-tabs__tab-panel--selected {
+    height: 100vh;
+    padding: 5px; }
+
 .summary-price__total {
   display: flex;
   flex-wrap: wrap;
@@ -260,44 +306,3 @@ button {
     .summary-person-list__person.active {
       width: 100%;
       background-color: pink; }
-
-#receipt .receipt-body {
-  width: 100%; }
-  #receipt .receipt-body ul.receipt-header {
-    align-items: center;
-    display: flex;
-    height: 60px;
-    width: 100%;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #ffffff;
-    z-index: 99;
-    font-size: 14px;
-    margin-left: 10px; }
-    #receipt .receipt-body ul.receipt-header li.react-tabs__tab {
-      height: 100%;
-      width: 25%;
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      color: #BEBDBE; }
-      #receipt .receipt-body ul.receipt-header li.react-tabs__tab--selected {
-        color: #375c85; }
-    #receipt .receipt-body ul.receipt-header li img {
-      width: 45px;
-      margin: 5px;
-      padding: 5px;
-      margin-right: 15px; }
-    #receipt .receipt-body ul.receipt-header li a {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 16px;
-      text-decoration: none; }
-    #receipt .receipt-body ul.receipt-header li a:hover {
-      cursor: pointer; }
-  #receipt .receipt-body .react-tabs__tab-panel--selected {
-    height: 100vh;
-    padding: 5px; }
